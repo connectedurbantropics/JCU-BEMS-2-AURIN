@@ -1,0 +1,14 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="source">
+        <SrcDataSource>source.csv</SrcDataSource>
+        <GeometryType>wkbPoint</GeometryType>
+        <LayerSRS>WGS84</LayerSRS>
+        <GeometryField encoding="PointFromColumns" x="Long" y="Lat"/>
+        <Field name="Lat" src="Lat" type="Real"/>
+        <Field name="Long" src="Long" type="Real"/>
+        <Field name="SampleID" src="SampleID" type="Integer"/>
+        <Field name="Air_Temp_Degrees_C" src="Air_Temp_Degrees_C" type="Integer"/>
+        <Field name="Water_Temp_Degrees_C" src="Water_Temp_Degrees_C" type="Integer"/>
+        <Field name="DO_Percent_Sat" src="DO_Percent_Sat" type="Integer"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>
