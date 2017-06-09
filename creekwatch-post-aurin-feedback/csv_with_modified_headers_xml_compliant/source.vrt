@@ -7,8 +7,38 @@
         <Field name="Lat" src="Lat" type="Real"/>
         <Field name="Long" src="Long" type="Real"/>
         <Field name="SampleID" src="SampleID" type="Integer"/>
+        <Field name="Sample_Date" src="Sample_Date" type="String"/>
+        <Field name="Aparatus" src="Aparatus" type="String"/>
+        <Field name="Water_Level" src="Water_Level" type="String"/>
+          <Field name="Flow_rate" src="Flow_rate" type="String"/>        
         <Field name="Air_Temp_Degrees_C" src="Air_Temp_Degrees_C" type="Integer"/>
         <Field name="Water_Temp_Degrees_C" src="Water_Temp_Degrees_C" type="Integer"/>
-        <Field name="DO_Percent_Sat" src="DO_Percent_Sat" type="Integer"/>
+        <Field name="Water_Temp_YSIPROPLUS" src="Water_Temp_YSIPROPLUS" type="Real"/>
+                <Field name="Water_Temp_YSI_Degrees_C" src="Water_Temp_YSI_Degrees_C" type="Real"/>
+
+        <Field name="DO_Percent_Sat" src="DO_Percent_Sat" type="Real"/>
+        <Field name="DO_YSIPROPLUS" src="DO_YSIPROPLUS" type="Real"/>
+                <Field name="DO_Percent_Sat_YSI" src="DO_Percent_Sat_YSI" type="Real"/>
+                <Field name="pH_FCK" src="pH_FCK" type="Real"/>
+                                <Field name="pH_YSIPROPLUS2" src="pH_YSIPROPLUS2" type="Real"/>
+                                <Field name="pH_YSI" src="pH_YSI" type="Real"/>
+                                <Field name="Conductivity_uS_cm_handheld" src="Conductivity_uS_cm_handheld" type="Integer"/>
+                                <Field name="Conductivity_YSIPROPLUS" src="Conductivity_YSIPROPLUS" type="Integer"/>
+                                <Field name="Conductivity_uS_cm_YSI" src="Conductivity_uS_cm_YSI" type="Integer"/>
+                                <Field name="Turbidity_NTU" src="Turbidity_NTU" type="Integer"/>
+                                <Field name="Macro_Diversity" src="Macro_Diversity" type="Integer"/>
+
+                                <Field name="Signal_2" src="Signal_2" type="Real"/>
+        <Field name="Invasive_Fish_Y_N" src="Invasive_Fish_Y_N" type="String"/>
+                                <Field name="Catch_effort_native_fish" src="Catch_effort_native_fish" type="Real"/>
+                                <Field name="Catch_effort_Invasive_fish" src="Catch_effort_Invasive_fish" type="Real"/>
+                                <Field name="Birds_Abundance" src="Birds_Abundance" type="Integer"/>
+                                <Field name="Bird_Diversity" src="Bird_Diversity" type="Integer"/>
+        <Field name="Weeds_Y_N" src="Weeds_Y_N" type="String"/>
+                                        <Field name="Percent_Coverage_of_Aquatic_Weeds" src="Percent_Coverage_of_Aquatic_Weeds" type="Integer"/>
+        <Field name="Coverage_of_Terrestrial_Weeds" src="Coverage_of_Terrestrial_Weeds" type="String"/>
+        <Field name="Impacts" src="Impacts" type="String"/>
+                                        <Field name="Volunteers" src="Volunteers" type="Integer"/>
+        <Field name="Comments_description_of_weeds_and_impacts" src="Comments_description_of_weeds_and_impacts" type="String"/>
     </OGRVRTLayer>
 </OGRVRTDataSource>
