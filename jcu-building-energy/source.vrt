@@ -1,0 +1,7 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="jcu-building-data">
+        <SrcDataSource>jcu-building-data.csv</SrcDataSource>
+        <Field name="timestamp" src="timestamp" type="String"/>
+        <Field name="TESAG_energy_value" src="TESAG_energy_value" type="Real"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>
