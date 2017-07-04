@@ -25,7 +25,7 @@ def make_sure_path_exists(path):
             raise
 
 # Make an output directory
-make_sure_path_exists('formattedOutput')
+make_sure_path_exists('output')
 
 # Loop through every file in the current working directory.
 # for csvFilename in os.listdir('.'):
@@ -74,10 +74,35 @@ del df['time']
 
 print(df.head())
 
+# TODO: Check CSV matches spec
+
+# Merge in the matching building WKT coordinates into another column for every row
+
+wkt = pd.read_csv('exampleWktInput.csv', error_bad_lines=False)
+
+# wkt_geom_only = wkt[['wkt_geom']]
+
+polygon_string = wkt['wkt_geom'].values[0]
+
+df['wkt_geom'] = polygon_string
+
+print(df.head())
+
 # Write out the CSV file.
 
 df.to_csv('exampleOutput.csv', header=True, index=False, date_format='%Y-%m-%dT%H:%M:%S+10:00')
 
-# TODO: Check CSV matches spec
 
-# TODO: Merge in the matching building WKT coordinates into another column for every row
+
+
+
+
+
+
+
+
+
+
+
+
+
