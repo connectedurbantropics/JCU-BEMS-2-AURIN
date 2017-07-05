@@ -28,69 +28,69 @@ def make_sure_path_exists(path):
 make_sure_path_exists('output')
 
 # Loop through every file in the current working directory.
-# for csvFilename in os.listdir('.'):
-    # if not csvFilename.endswith('.csv'):
-        # continue    # skip non-csv files
-    # print('Reading in ' + csvFilename + '...')
+for csvFilename in os.listdir('input/EMS_CNS'):
+    if not csvFilename.endswith('.csv'):
+        continue    # skip non-csv files
+    print('Reading in ' + csvFilename + '...')
 
-    # Read the CSV file in
-    # df = pd.read_csv(csvFilename, delim_whitespace=True, error_bad_lines=False)
+    # # Read the CSV file in
+    # df = pd.read_csv(csvFilename, error_bad_lines=False)
+    
+    # # Drop the useless year row
+    # df.drop(df.index[:1], inplace=True)
+    
+    # # Rename the data column for easier access
+    # new_columns = df.columns.values
+    # new_columns[0] = 'original'
+    # df.columns = new_columns
+    
+    # # def logstring_to_data(logstr):
+    # #     # first, split time and data
+    # #     (timestr, datastr) = logstr.split(';')
+    
+    # #     datavalue = float(datastr)
+    
+    # #     time = datetime.datetime.strptime(timestr, "%y/%m/%d %I")
+    
+    # #     print( ' @@@ '.join([timestr, str(datavalue)]) )
+    
+    
+    # # # Split the 'original' column on the ; character and make two new columns
+    
+    # # logstring_to_data('12/11/07 1:00:00 PM;111.8')
+    
+    
+    # df['time'], df['value'] = df['original'].str.split(';', 1).str
+    
+    
+    # # Convert time column into a date object
+    # df['timestamp'] = pd.to_datetime(df['time'])
+    
+    # del df['original']
+    # del df['time']
+    
+    # print(df.head())
+    
+    # # TODO: Check CSV matches spec
+    
+    # # Merge in the matching building WKT coordinates into another column for every row
+    
+    # wkt = pd.read_csv('exampleWktInput.csv', error_bad_lines=False)
+    
+    # # Extract the polygon WKT string
+    # polygon_string = wkt['wkt_geom'].values[0]
+    
+    # # Create a column of entirely that
+    # df['wkt_geom'] = polygon_string
+    
+    # print(df.head())
+    
+    # # Write out the CSV file.
+    # df.to_csv('output/exampleOutput.csv', header=True, index=False, date_format='%Y-%m-%dT%H:%M:%S+10:00')
+
 
 # Read in the data csv
-df = pd.read_csv('exampleInput.csv', error_bad_lines=False)
-
-# Drop the useless year row
-df.drop(df.index[:1], inplace=True)
-
-# Rename the data column for easier access
-new_columns = df.columns.values
-new_columns[0] = 'original'
-df.columns = new_columns
-
-# def logstring_to_data(logstr):
-#     # first, split time and data
-#     (timestr, datastr) = logstr.split(';')
-
-#     datavalue = float(datastr)
-
-#     time = datetime.datetime.strptime(timestr, "%y/%m/%d %I")
-
-#     print( ' @@@ '.join([timestr, str(datavalue)]) )
-
-
-# # Split the 'original' column on the ; character and make two new columns
-
-# logstring_to_data('12/11/07 1:00:00 PM;111.8')
-
-
-df['time'], df['value'] = df['original'].str.split(';', 1).str
-
-
-# Convert time column into a date object
-df['timestamp'] = pd.to_datetime(df['time'])
-
-del df['original']
-del df['time']
-
-print(df.head())
-
-# TODO: Check CSV matches spec
-
-# Merge in the matching building WKT coordinates into another column for every row
-
-wkt = pd.read_csv('exampleWktInput.csv', error_bad_lines=False)
-
-# wkt_geom_only = wkt[['wkt_geom']]
-
-polygon_string = wkt['wkt_geom'].values[0]
-
-df['wkt_geom'] = polygon_string
-
-print(df.head())
-
-# Write out the CSV file.
-
-df.to_csv('exampleOutput.csv', header=True, index=False, date_format='%Y-%m-%dT%H:%M:%S+10:00')
+#df = pd.read_csv('exampleInput.csv', error_bad_lines=False)
 
 
 
