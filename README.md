@@ -1,20 +1,14 @@
 # README
 
-Converting from everything being strings to the value types that AURIN want.
+Converting from raw dumps from JCU BEMS to the geo referenced value types for AURIN.
 
-## Goal
+## Requirements 
+* Python3
+* GDAL
 
-Convert the reference input csv's in `input/` into the correct output e.g. `output/example-output.geojson` - using whatever method makes you happy.
+## Getting Started
 
-## Previous methods
-
-1. 
-    * Use Excel formulas to clean and assemble a pre `ogr2ogr` CSV e.g. `input/source.csv`.
-    * Create a GDAL `.vrt` file that specifies where to extract geometry from and what date type each attribute field is. See `input/source.vrt`
-    * Use `ogr2ogr` command from GDAL to convert into correct GeoJSON or Shapefile. (*Note:* Install GDAL from git HEAD to get GDAL 2.0 if you like fancy e.g. `brew install gdal --HEAD`)
-    * `ogr2ogr -f "GeoJSON" outputfilename.geojson source.vrt`
-
-2. * Write some python to do it a different and proper way.  See `pandas.py` for a start.
+* Change all the hardcoded directories to correct paths
 
 ## Notes
 
