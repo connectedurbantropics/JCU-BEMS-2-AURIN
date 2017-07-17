@@ -12,10 +12,11 @@ import datetime
 import subprocess
 
 #######################################
-# Directories to change
+# NOTE: Must change
+# Hardcoded directories of input and output
 
 wkt_parent_dir = '/Users/stevevandervalk/Dropbox/eResearch/ConnectedUrbanTropics/csv-geojson-shapefiles/input/building-coords/'
-parent_dir = '/Users/stevevandervalk/Dropbox/eResearch/ConnectedUrbanTropics/csv-geojson-shapefiles/input/building-data/'
+building_data_split_by_campus_dir = '/Users/stevevandervalk/Dropbox/eResearch/ConnectedUrbanTropics/csv-geojson-shapefiles/input/building-data/'
 old_source_csv_path = '/Users/stevevandervalk/Dropbox/eResearch/ConnectedUrbanTropics/csv-geojson-shapefiles/output/ogr/source.csv'
 ogr_cwd = '/Users/stevevandervalk/Dropbox/eResearch/ConnectedUrbanTropics/csv-geojson-shapefiles/output/ogr/'
 wkt_merged_dir = '/Users/stevevandervalk/Dropbox/eResearch/ConnectedUrbanTropics/csv-geojson-shapefiles/input/building-coords-merged/'
@@ -69,8 +70,8 @@ build_list_of_wkt_filenames()
 
 # Loop through every csv file in the data input directory.
 subject_dirs = [
-    os.path.join(parent_dir, dir) for dir in os.listdir(parent_dir)
-    if os.path.isdir(os.path.join(parent_dir, dir))
+    os.path.join(building_data_split_by_campus_dir, dir) for dir in os.listdir(building_data_split_by_campus_dir)
+    if os.path.isdir(os.path.join(building_data_split_by_campus_dir, dir))
 ]
 counter = 0
 year_building = ''
@@ -105,14 +106,14 @@ for dir in subject_dirs:
         del df['time']
 
         # Check CSV matches spec
-        # print('Check head of dataframe matches spec : value | timestamp \n')
+        # print('Check head of data frame matches spec : value | timestamp \n')
         # print(df.head())
 
         # Get the year and building for later
         year_building = (file.split("/")[10])
 
-        ## Merge in the matching building WKT coordinates as another column for every row
 
+        # Merge in the matching building WKT coordinates as another column for every row
 
         def return_matching_wkt_file():
             building_name_only = year_building.split("-")[1]
@@ -125,10 +126,11 @@ for dir in subject_dirs:
         matching_wkt_string = return_matching_wkt_file()
 
         # Create the path to the csv that is the matching_wkt_string
-        matching_wkt_file = repr(wkt_merged_dir) + repr(matching_wkt_string)
+        path_to_matching_wkt_file = os.path.join(wkt_merged_dir, matching_wkt_string)
+        # normalised_path_maybe = os.path.normpath(path_to_matching_wkt_file)
 
         # Use the matching wkt file
-        wkt = pd.read_csv(matching_wkt_file, index_col=False)
+        wkt = pd.read_csv(path_to_matching_wkt_file, index_col=False)
 
         # Extract the polygon WKT string
         polygon_string = wkt['wkt_geom'].values[0]
@@ -137,6 +139,7 @@ for dir in subject_dirs:
         df['wkt_geom'] = polygon_string
 
         # Write out the CSV file
+        print("Writing csv file for : " + repr(year_building))
         df.to_csv(
             'output/output' + year_building,
             header=True,

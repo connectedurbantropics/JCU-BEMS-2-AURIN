@@ -2,9 +2,9 @@
     <OGRVRTLayer name="source">
         <SrcDataSource>source.csv</SrcDataSource>
         <GeometryType>wkbPolygon</GeometryType>
-        <GeometryField encoding="WKT" field="geo" />
+        <GeometryField encoding="WKT" field="wkt_geom" />
         <LayerSRS>WGS84</LayerSRS>
         <Field name="timestamp" src="timestamp" type="String"/>
-        <Field name="TESAG" src="TESAG" type="Real"/>
+        <Field name="TESAG" src="value" type="Real"/>
     </OGRVRTLayer>
 </OGRVRTDataSource>
